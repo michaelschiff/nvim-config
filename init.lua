@@ -21,20 +21,9 @@ vim.g.loaded_netrwPlugin = 1
 
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true
-
+vim.opt.number = true
 
 require("lazy").setup({
-	-- {
-	--  'ribru17/bamboo.nvim',
-	--  lazy = false,
-	--  priority = 1000,
-	--  config = function()
-	--    require('bamboo').setup {
-	--      -- optional configuration here
-	--    }
-	--    require('bamboo').load()
-	--  end,
-	-- },
 	{
 	  "nvim-tree/nvim-tree.lua",
 	  version = "*",
@@ -117,14 +106,17 @@ require("lazy").setup({
 	{
 	    'nvim-telescope/telescope.nvim', tag = '0.1.6',
 	    dependencies = { 'nvim-lua/plenary.nvim' },
+	    config = function()
+		local builtin = require('telescope.builtin')
+	        vim.keymap.set('n', '<C-f><C-f>', builtin.find_files, {})
+	    end,
         },
 	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
 	{"mfussenegger/nvim-dap"},
-	{ "ellisonleao/gruvbox.nvim", priority = 1000 , config = true}
+	{ "ellisonleao/gruvbox.nvim", priority = 1000 , config = true},
 })
 
 vim.o.background = "light"  -- or "dark"
 vim.cmd([[colorscheme gruvbox]])
 
 
-vim.o.background = 'light'
