@@ -24,17 +24,17 @@ vim.opt.termguicolors = true
 
 
 require("lazy").setup({
-	{
-	  'ribru17/bamboo.nvim',
-	  lazy = false,
-	  priority = 1000,
-	  config = function()
-	    require('bamboo').setup {
-	      -- optional configuration here
-	    }
-	    require('bamboo').load()
-	  end,
-	},
+	-- {
+	--  'ribru17/bamboo.nvim',
+	--  lazy = false,
+	--  priority = 1000,
+	--  config = function()
+	--    require('bamboo').setup {
+	--      -- optional configuration here
+	--    }
+	--    require('bamboo').load()
+	--  end,
+	-- },
 	{
 	  "nvim-tree/nvim-tree.lua",
 	  version = "*",
@@ -114,7 +114,17 @@ require("lazy").setup({
 		})
 	    end,
         },
+	{
+	    'nvim-telescope/telescope.nvim', tag = '0.1.6',
+	    dependencies = { 'nvim-lua/plenary.nvim' },
+        },
+	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+	{"mfussenegger/nvim-dap"},
+	{ "ellisonleao/gruvbox.nvim", priority = 1000 , config = true}
 })
+
+vim.o.background = "light"  -- or "dark"
+vim.cmd([[colorscheme gruvbox]])
 
 
 vim.o.background = 'light'
