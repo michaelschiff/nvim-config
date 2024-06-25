@@ -55,7 +55,63 @@ require("lazy").setup({
         },
 	{
 	    "neovim/nvim-lspconfig", 
-	    config = function() require("lspconfig").gopls.setup({}) end,
+	    config = function() 
+		local lspconfig = require("lspconfig")
+		lspconfig.gopls.setup({
+		  settings = {
+		    gopls = {
+		      analyses = {
+			unusedparams = true,
+		      },
+		      staticcheck = true,
+		      gofumpt = true,
+		    },
+		  },
+		})
+		lspconfig.jdtls.setup({})
+		lspconfig.marksman.setup({})
+	    end,
+	},
+	{
+	    "hrsh7th/nvim-cmp",
+	    dependencies = {
+		"hrsh7th/cmp-nvim-lsp",
+	    },
+	    config = function()
+		local cmp = require("cmp")
+		cmp.setup({
+		    snippet = {
+		      -- REQUIRED - you must specify a snippet engine
+		      expand = function(args)
+			vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+			-- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+			-- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+			-- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+			-- vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
+		      end,
+		    },
+		    window = {
+		      -- completion = cmp.config.window.bordered(),
+		      -- documentation = cmp.config.window.bordered(),
+		    },
+		    mapping = cmp.mapping.preset.insert({
+		      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+		      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+		      ['<C-Space>'] = cmp.mapping.complete(),
+		      ['<C-e>'] = cmp.mapping.abort(),
+		      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+		    }),
+		    sources = cmp.config.sources({
+		      { name = 'nvim_lsp' },
+		      { name = 'vsnip' }, -- For vsnip users.
+		      -- { name = 'luasnip' }, -- For luasnip users.
+		      -- { name = 'ultisnips' }, -- For ultisnips users.
+		      -- { name = 'snippy' }, -- For snippy users.
+		    }, {
+		      { name = 'buffer' },
+		    })
+		  })
+	    end,
 	},
 	{
 	    "nvim-lualine/lualine.nvim",
@@ -109,6 +165,10 @@ require("lazy").setup({
 	    config = function()
 		local builtin = require('telescope.builtin')
 	        vim.keymap.set('n', '<C-f><C-f>', builtin.find_files, {})
+	        vim.keymap.set('n', '<C-n>', builtin.lsp_references, {})
+	        vim.keymap.set('n', '<C-j>', builtin.lsp_incoming_calls, {})
+		vim.keymap.set('n', '<C-m>', vim.lsp.buf.definition, {})
+		vim.keymap.set('n', '<C-o>', vim.lsp.buf.document_symbol, {})
 	    end,
         },
 	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
