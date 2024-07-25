@@ -104,6 +104,8 @@ require("lazy").setup({
 			})
 			lspconfig.bashls.setup({})
 			lspconfig.terraformls.setup({})
+			lspconfig.starpls.setup({})
+			lspconfig.pyright.setup({})
 		end,
 	},
 	-- nvim-jdtls configuration is in ftplugin directory
@@ -206,6 +208,8 @@ require("lazy").setup({
 			vim.keymap.set('n', '<C-f><C-f>', builtin.find_files, {})
 			vim.keymap.set('n', '<C-n>', builtin.lsp_references, {})
 			vim.keymap.set('n', '<C-j>', builtin.lsp_incoming_calls, {})
+			--TODO(michaelschiff): the binding below have nothing to do with telescope and should
+			-- probably live somewhere else.  What is the right way to manage keymappings
 			vim.keymap.set('n', '<C-m>', vim.lsp.buf.definition, {})
 			vim.keymap.set('n', '<M-LeftMouse>', vim.lsp.buf.definition, {})
 			vim.keymap.set('n', '<C-i>', vim.lsp.buf.implementation, {})
@@ -245,23 +249,16 @@ require("lazy").setup({
 		end
 	},
 	{
+		"michaelschiff/nvim-todo",
 		dir = "/Users/michaelschiff/Documents/nvim-todo",
 		config = function()
-			require("todo").setup({
-				name = "michael",
-				tokenPath =
-				"/Users/michaelschiff/Desktop/test.txt"
-			})
+			-- need to requre the package for init side effects
+			local todo = require("todo")
+			vim.keymap.set('n', 'ff', todo.toggleDescription, {})
+			vim.keymap.set('n', 'to', todo.openPRLink, {})
 		end
 	},
 })
-
---vim.api.nvim_create_augroup('AutoFormatting', {})
---vim.api.nvim_create_autocmd('BufWritePre', {
---	pattern = '*',
---	group = 'AutoFormatting',
---	callback = function() vim.cmd("gggqG") end,
---})
---
+vim.keymap.set('n', '<C-1>', ':NvimTreeToggle<CR>', {noremap = true})
 vim.o.background = "light" -- or "dark"
 vim.cmd([[colorscheme gruvbox]])
