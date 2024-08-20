@@ -23,6 +23,17 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 vim.opt.number = true
 
+require("lazy").setup("plugins")
+
 vim.keymap.set('n', '<C-1>', ':NvimTreeToggle<CR>', {noremap = true})
+vim.keymap.set('n', '<C-m>', vim.lsp.buf.definition, {})
+vim.keymap.set('n', '<M-LeftMouse>', vim.lsp.buf.definition, {})
+vim.keymap.set('n', '<C-i>', vim.lsp.buf.implementation, {})
+vim.keymap.set('n', '<C-o>', vim.lsp.buf.document_symbol, {})
+vim.keymap.set('n', '<C-k>', vim.lsp.buf.hover, {})
+
 vim.o.background = "light" -- or "dark"
+vim.cmd([[:hi Cursor guifg=purple guibg=purple]])
+vim.cmd([[set guicursor=n-v-c:block-Cursor/lCursor]])
+vim.cmd([[:hi MatchParen ctermbg=blue guibg=lightblue]])
 --vim.cmd([[colorscheme gruvbox]])

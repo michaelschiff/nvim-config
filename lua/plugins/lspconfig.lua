@@ -46,6 +46,7 @@ return {
 			lspconfig.terraformls.setup({})
 			lspconfig.starpls.setup({})
 			lspconfig.pyright.setup({})
+			lspconfig.postgres_lsp.setup({})
 		end,
 	},
 }
