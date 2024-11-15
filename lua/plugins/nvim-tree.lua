@@ -7,8 +7,11 @@ return {
 			"nvim-tree/nvim-web-devicons",
 		},
 		config = function()
-			require("nvim-tree").setup {}
-			require("nvim-tree.api").tree.open()
+			require("nvim-tree").setup({
+				view = { adaptive_size = true }
+			})
+			-- uncomment the following line to open the tree view on startup
+			--require("nvim-tree.api").tree.open()
 		end,
 	},
 }
