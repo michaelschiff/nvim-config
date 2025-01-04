@@ -49,6 +49,7 @@ vim.cmd([[:hi Cursor guifg=purple guibg=purple]])
 vim.cmd([[set guicursor=n-v-c:block-Cursor/lCursor]])
 vim.cmd([[:hi MatchParen ctermbg=blue guibg=lightblue]])
 vim.cmd([[colorscheme gruvbox]])
+vim.cmd([[set expandtab]])
 
 -- "global" window options
 vim.api.nvim_create_autocmd({'BufRead'}, {pattern = "*", callback = function ()
