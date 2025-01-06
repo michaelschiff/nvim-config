@@ -11,7 +11,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.mapleader = " "       -- Make sure to set `mapleader` before lazy so your mappings are correct
+vim.g.mapleader = ","       -- Make sure to set `mapleader` before lazy so your mappings are correct
 vim.g.maplocalleader = "\\" -- Same for `maplocalleader`
 
 -- disable netrw at the very start of your init.lua
@@ -25,18 +25,17 @@ vim.opt.number = true
 require("lazy").setup("plugins")
 
 -- Navigation key maps
-vim.keymap.set('n', '<C-1>', ':NvimTreeToggle<CR>', {noremap = true})
+vim.keymap.set('n', '<leader>1', ':NvimTreeToggle<CR>', {noremap = true})
 --vim.keymap.set('n', '<C-[>', ':bp<CR>', {noremap = true})
 --vim.keymap.set('n', '<C-]>', ':bn<CR>', {noremap = true})
 
 -- LSP and programming keymaps
-vim.keymap.set('n', '<C-m>', vim.lsp.buf.definition, {})
-vim.keymap.set('n', '<C-i>', vim.lsp.buf.implementation, {})
-vim.keymap.set('n', '<C-o>', vim.lsp.buf.document_symbol, {})
-vim.keymap.set('n', '<C-k>', vim.lsp.buf.hover, {})
-vim.keymap.set('n', '<C-l>', vim.lsp.buf.code_action, {})
-vim.keymap.set('n', '<C-c>', vim.lsp.buf.completion, {})
-vim.keymap.set('n', '<C-e>', vim.diagnostic.open_float, {})
+vim.keymap.set('n', '<leader>m', vim.lsp.buf.definition, {})
+vim.keymap.set('n', '<leader>i', vim.lsp.buf.implementation, {})
+vim.keymap.set('n', '<leader>o', vim.lsp.buf.document_symbol, {})
+vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover, {})
+vim.keymap.set('n', '<leader>l', vim.lsp.buf.code_action, {})
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {})
 
 -- code folding
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
@@ -47,6 +46,7 @@ vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
 vim.o.background = "light" -- or "dark"
 vim.cmd([[:hi Cursor guifg=purple guibg=purple]])
 vim.cmd([[set guicursor=n-v-c:block-Cursor/lCursor]])
+vim.opt.guicursor = "i:block-blinkwait1000-blinkon500-blinkoff500";
 vim.cmd([[:hi MatchParen ctermbg=blue guibg=lightblue]])
 vim.cmd([[colorscheme gruvbox]])
 vim.cmd([[set expandtab]])
