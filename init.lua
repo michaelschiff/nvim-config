@@ -26,26 +26,21 @@ require("lazy").setup("plugins")
 
 -- Navigation key maps
 vim.keymap.set('n', '<leader>1', ':NvimTreeToggle<CR>', {noremap = true})
---vim.keymap.set('n', '<C-[>', ':bp<CR>', {noremap = true})
---vim.keymap.set('n', '<C-]>', ':bn<CR>', {noremap = true})
 
 -- LSP and programming keymaps
 vim.keymap.set('n', '<leader>m', vim.lsp.buf.definition, {})
 vim.keymap.set('n', '<leader>i', vim.lsp.buf.implementation, {})
 vim.keymap.set('n', '<leader>o', vim.lsp.buf.document_symbol, {})
 vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover, {})
-vim.keymap.set('n', '<leader>l', vim.lsp.buf.code_action, {})
+vim.keymap.set('n', '<leader><CR>', vim.lsp.buf.code_action, {})
+vim.keymap.set('n', '<leader>ll', vim.diagnostic.setloclist, {})
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {})
-
--- code folding
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
 
 
 -- appearance and vim commands
 vim.o.background = "light" -- or "dark"
-vim.cmd([[:hi Cursor guifg=purple guibg=purple]])
-vim.cmd([[set guicursor=n-v-c:block-Cursor/lCursor]])
+--vim.cmd([[:hi Cursor guifg=purple guibg=purple]])
+--vim.cmd([[set guicursor=n-v-c:block-Cursor/lCursor]])
 vim.opt.guicursor = "i:block-blinkwait1000-blinkon500-blinkoff500";
 vim.cmd([[:hi MatchParen ctermbg=blue guibg=lightblue]])
 vim.cmd([[colorscheme gruvbox]])
