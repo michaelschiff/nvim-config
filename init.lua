@@ -32,10 +32,17 @@ vim.keymap.set('n', '<leader>m', vim.lsp.buf.definition, {})
 vim.keymap.set('n', '<leader>i', vim.lsp.buf.implementation, {})
 vim.keymap.set('n', '<leader>o', vim.lsp.buf.document_symbol, {})
 vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover, {})
+<<<<<<< HEAD
 vim.keymap.set('n', '<leader><CR>', vim.lsp.buf.code_action, {})
 vim.keymap.set('n', '<leader>ll', vim.diagnostic.setloclist, {})
+=======
+vim.keymap.set('n', '<leader>ll', vim.diagnostic.setloclist, {})
+vim.keymap.set('n', '<leader>u', vim.lsp.buf.incoming_calls, {})
+>>>>>>> 8548e2a (nice)
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {})
+vim.keymap.set('n', '<leader>fr', vim.lsp.buf.references, {})
 
+<<<<<<< HEAD
 
 -- appearance and vim commands
 vim.o.background = "light" -- or "dark"
@@ -44,6 +51,17 @@ vim.o.background = "light" -- or "dark"
 vim.opt.guicursor = "i:block-blinkwait1000-blinkon500-blinkoff500";
 vim.cmd([[:hi MatchParen ctermbg=blue guibg=lightblue]])
 vim.cmd([[colorscheme gruvbox]])
+=======
+vim.opt.foldmethod = "manual"
+
+-- appearance and vim commands
+-- vim.o.background = "light"
+vim.o.background = "light"
+
+-- vim.cmd([[:hi Cursor guifg=black guibg=yellow]])
+-- vim.cmd([[set guicursor=n-v-c:block-Cursor/lCursor]])
+-- vim.cmd([[colorscheme gruvbox]])
+>>>>>>> 8548e2a (nice)
 vim.cmd([[set expandtab]])
 
 -- "global" window options

@@ -40,10 +40,10 @@ return {
 			lspconfig.starpls.setup({})
 			lspconfig.pyright.setup({})
 			lspconfig.postgres_lsp.setup({})
-			lspconfig.java_language_server.setup({
-				cmd = { '/Users/michaelschiff/Documents/barista/bazel-bin/src/main/barista/barista' },
-				settings = {},
-			})
+			-- lspconfig.java_language_server.setup({
+			-- 	cmd = { '/Users/michaelschiff/Documents/barista/bazel-bin/src/main/barista/barista' },
+			-- 	settings = {},
+			-- })
 			lspconfig.openscad_lsp.setup({})
 			lspconfig.tsp_server.setup({})
 		end,
