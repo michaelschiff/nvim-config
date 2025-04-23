@@ -11,7 +11,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.mapleader = ","       -- Make sure to set `mapleader` before lazy so your mappings are correct
+vim.g.mapleader = " "       -- Make sure to set `mapleader` before lazy so your mappings are correct
 vim.g.maplocalleader = "\\" -- Same for `maplocalleader`
 
 -- disable netrw at the very start of your init.lua
@@ -56,7 +56,7 @@ vim.opt.foldmethod = "manual"
 
 -- appearance and vim commands
 -- vim.o.background = "light"
-vim.o.background = "light"
+vim.o.background = "dark"
 
 -- vim.cmd([[:hi Cursor guifg=black guibg=yellow]])
 -- vim.cmd([[set guicursor=n-v-c:block-Cursor/lCursor]])
