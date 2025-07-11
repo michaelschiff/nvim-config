@@ -32,7 +32,6 @@ vim.keymap.set('n', '<leader>m', vim.lsp.buf.definition, {})
 vim.keymap.set('n', '<leader>i', vim.lsp.buf.implementation, {})
 vim.keymap.set('n', '<leader>o', vim.lsp.buf.document_symbol, {})
 vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover, {})
-vim.keymap.set('n', '<leader>fr', vim.lsp.buf.references, {})
 vim.keymap.set('n', '<leader>af', vim.lsp.buf.format, {})
 vim.keymap.set('n', '<leader><CR>', vim.lsp.buf.code_action, {})
 vim.keymap.set('n', '<leader>ll', vim.diagnostic.setloclist, {})
@@ -75,38 +74,11 @@ dap.configurations.go = {
   }
 }
 
-<<<<<<< HEAD
-
--- appearance and vim commands
-<<<<<<< HEAD
-vim.o.background = "light" -- or "dark"
---vim.cmd([[:hi Cursor guifg=purple guibg=purple]])
---vim.cmd([[set guicursor=n-v-c:block-Cursor/lCursor]])
-vim.opt.guicursor = "i:block-blinkwait1000-blinkon500-blinkoff500";
-vim.cmd([[:hi MatchParen ctermbg=blue guibg=lightblue]])
-vim.cmd([[colorscheme gruvbox]])
-=======
-vim.opt.foldmethod = "manual"
 
 -- appearance and vim commands
 -- vim.o.background = "light"
 vim.o.background = "dark"
 
--- vim.cmd([[:hi Cursor guifg=black guibg=yellow]])
--- vim.cmd([[set guicursor=n-v-c:block-Cursor/lCursor]])
--- vim.cmd([[colorscheme gruvbox]])
->>>>>>> 8548e2a (nice)
-||||||| parent of 21e7d32 (leader space)
-vim.o.background = "light" -- or "dark"
---vim.cmd([[:hi Cursor guifg=purple guibg=purple]])
---vim.cmd([[set guicursor=n-v-c:block-Cursor/lCursor]])
-vim.opt.guicursor = "i:block-blinkwait1000-blinkon500-blinkoff500";
-vim.cmd([[:hi MatchParen ctermbg=blue guibg=lightblue]])
-vim.cmd([[colorscheme gruvbox]])
-=======
-vim.o.background = "light"
-vim.cmd([[:colorscheme vim]])
->>>>>>> 21e7d32 (leader space)
 vim.cmd([[set expandtab]])
 
 -- "global" window options
@@ -137,4 +109,3 @@ vim.api.nvim_create_autocmd({"BufWritePre"}, {
     vim.lsp.buf.format({async = false})
   end
 })
-
