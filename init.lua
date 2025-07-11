@@ -41,6 +41,43 @@ vim.keymap.set('n', '<leader>u', vim.lsp.buf.incoming_calls, {})
 >>>>>>> 8548e2a (nice)
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {})
 vim.keymap.set('n', '<leader>fr', vim.lsp.buf.references, {})
+vim.keymap.set('n', '<leader>af', vim.lsp.buf.format, {})
+
+-- Telescope search 
+local telescope = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', telescope.find_files, {})
+vim.keymap.set('n', '<leader>fr', telescope.lsp_references, {})
+
+-- DAP debugging
+local dap = require('dap')
+dap.adapters.delve = {
+	type = "server",
+	host = "127.0.0.1",
+	port = 38697,
+}
+dap.configurations.go = {
+  {
+    type = "delve",
+    name = "Debug",
+    request = "launch",
+    program = "${file}"
+  },
+  {
+    type = "delve",
+    name = "Debug test", -- configuration for debugging test files
+    request = "launch",
+    mode = "test",
+    program = "${file}"
+  },
+  -- works with go.mod packages and sub packages 
+  {
+    type = "delve",
+    name = "Debug test (go.mod)",
+    request = "launch",
+    mode = "test",
+    program = "./${relativeFileDirname}"
+  }
+}
 
 <<<<<<< HEAD
 
