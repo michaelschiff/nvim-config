@@ -22,6 +22,11 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 vim.opt.number = true
 
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+vim.o.softtabstop = 4
+
 require("lazy").setup("plugins")
 
 -- Navigation key maps
