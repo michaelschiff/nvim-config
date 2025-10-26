@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "       -- Make sure to set `mapleader` before lazy so your mappings are correct
 vim.g.maplocalleader = "\\" -- Same for `maplocalleader`
 
--- disable netrw at the very start of your init.lua
+-- disable netrw at the very start of your init.lua (for nvim-tree)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
@@ -77,7 +77,8 @@ dap.configurations.go = {
 
 -- appearance and vim commands
 -- vim.o.background = "light"
-vim.o.background = "dark"
+-- vim.o.background = "dark"
+vim.cmd("colorscheme kanagawa-lotus")
 
 vim.cmd([[set expandtab]])
 
