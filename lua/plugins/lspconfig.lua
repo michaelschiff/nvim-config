@@ -61,12 +61,9 @@ return {
 			-- 	cmd = { '/Users/michaelschiff/Documents/barista/bazel-bin/src/main/barista/barista' },
 			-- 	settings = {},
 			-- })
-<<<<<<< Updated upstream
-=======
             lspconfig.ts_ls.setup({})
 			lspconfig.openscad_lsp.setup({})
 			lspconfig.tsp_server.setup({})
->>>>>>> Stashed changes
 		end,
 	},
 }
