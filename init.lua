@@ -27,6 +27,8 @@ vim.o.shiftwidth = 4
 vim.o.expandtab = true
 vim.o.softtabstop = 4
 
+vim.lsp.enable({'gopls', 'luals', 'bash-language-server', 'starpls-darwin-amd64', 'superhtml'})
+
 require("lazy").setup("plugins")
 
 -- Navigation key maps
