@@ -1,6 +1,3 @@
-vim.opt.runtimepath:remove('/usr/share/nvim/runtime/lua/vim/treesitter/')
-vim.opt.runtimepath:remove('/usr/share/nvim/runtime/lua/vim/treesitter.lua')
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	vim.fn.system({
