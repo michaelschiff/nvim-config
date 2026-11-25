@@ -27,9 +27,11 @@ vim.o.shiftwidth = 4
 vim.o.expandtab = true
 vim.o.softtabstop = 4
 
-vim.lsp.enable({'gopls', 'luals', 'bash-language-server', 'starpls', 'jls', 'superhtml', 'ts_ls', 'marksman'})
+vim.lsp.enable({'gopls', 'clangd', 'luals', 'bash-language-server', 'starpls', 'jls', 'superhtml', 'ts_ls', 'marksman'})
 
 require("lazy").setup("plugins")
+
+require("snear_cursor").setup()
 
 -- Navigation key maps
 vim.keymap.set('n', '<leader>1', ':NvimTreeToggle<CR>', {noremap = true})
@@ -49,6 +51,8 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {})
 local telescope = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', telescope.find_files, {})
 vim.keymap.set('n', '<leader>fr', telescope.lsp_references, {})
+
+require('nvim-treesitter').install { 'bash', 'go', 'html', 'javascript', 'yaml' }
 
 -- DAP debugging
 local dap = require('dap')
