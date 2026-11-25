@@ -31,7 +31,7 @@ vim.lsp.enable({'gopls', 'clangd', 'luals', 'bash-language-server', 'starpls', '
 
 require("lazy").setup("plugins")
 
-require("snear_cursor").setup()
+require("smear_cursor").setup()
 
 -- Navigation key maps
 vim.keymap.set('n', '<leader>1', ':NvimTreeToggle<CR>', {noremap = true})
